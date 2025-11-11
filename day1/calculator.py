@@ -27,13 +27,14 @@ def multiply(a: float, b: float):
 
 
 def divide(a: float, b: float):
-    if a == 0 or b == 0:
+    if b == 0:
         return "Erreur: division par 0"
     return a / b
 
 
-def choices():
+def get_user_choice():
     print("")
+    print("\n--- Nouvelle opération ---")
     print("Choisis une opération:")
     print("1: Addition")
     print("2: Soustraction")
@@ -52,7 +53,7 @@ def choices():
     return choice, float_a, float_b
 
 
-choice, float_a, float_b = choices()
+choice, float_a, float_b = get_user_choice()
 while choice != "0":
     if choice == "1":
         print(add(float_a, float_b))
@@ -65,4 +66,4 @@ while choice != "0":
     else:
         print("Option inconnue")
 
-    choice, float_a, float_b = choices()
+    choice, float_a, float_b = get_user_choice()

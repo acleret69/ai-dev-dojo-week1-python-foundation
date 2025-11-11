@@ -5,7 +5,7 @@ Afficher une phrase
 Dire si majeur / mineur
 """
 
-name = "john"
+name = "John"
 age = 30
 city = "New York"
 
@@ -60,8 +60,8 @@ Créer une fonction qui retourne uniquement les nombres pairs d'une liste.
 """
 
 
-def get_pairs_numbers_four_list(numbers: list[int]):
+def even_numbers(numbers: list[int]):
     return [number for number in numbers if number % 2 == 0]
 
 
-print(get_pairs_numbers_four_list([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]))
+print(even_numbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]))
