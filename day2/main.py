@@ -1,7 +1,21 @@
 from math_utils import add, divide, multiply, subtract
 
-while True:
-    # conceptions des options possible du menu
+
+def show_menu(options):
+    print("\n=== Menu Calculatrice ===")
+    for key, (label, _) in options.items():
+        print(f"{key}: {label}")
+
+
+def get_number(prompt):
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("❌ Entrée invalide, veuillez entrer un nombre.")
+
+
+def main():
     options = {
         "1": ("Addition", add),
         "2": ("Soustraction", subtract),
@@ -10,27 +24,26 @@ while True:
         "0": ("Quitter", None),
     }
 
-    # écriture du menu dans la console
-    for key, (label, _) in options.items():
-        print(f"{key}: {label}")
+    while True:
+        show_menu(options)
+        choice = input("\nVotre choix: ").strip()
 
-    # Récupération du choix
-    choice = input("\nTon choix: ")
+        if choice == "0":
+            print("👋 Au revoir, à la prochaine !")
+            break
 
-    # Gestion pour quitter l'application
-    if choice == "0":
-        print("Au revoir , à la prochaine ;)")
-        break
+        if choice not in options:
+            print("❌ Option inconnue.")
+            continue
 
-    # Gestion pouroptions inconnue
-    if choice not in options:
-        print("Option inconnue")
-        continue
+        a = get_number("Numéro 1: ")
+        b = get_number("Numéro 2: ")
+        _, func = options[choice]
+        result = func(a, b)
 
-    # Récupération des numéros
-    number_1 = float(input("Numéro 1: "))
-    number_2 = float(input("Numéro 2: "))
+        if result is not None:
+            print(f"Résultat de l'opération : {result}")
 
-    # Récupération de la fonction associé et affichage à l'utilisateur
-    _, func = options[choice]
-    print(f"Résultat de l'opération : {func(number_1, number_2)}")
+
+if __name__ == "__main__":
+    main()
