@@ -1,0 +1,8 @@
+# Exemple operations.txt
+3 + 2
+5 * (4 + 1)
+10 / 2
+2 ** 8
+-5 + 3
+100 / 0
+invalid_expression()
